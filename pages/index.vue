@@ -1,0 +1,100 @@
+<template>
+  <div>
+    
+    <div class="min-h-screen bg-slate-100">
+      <div class="relative flex h-full w-full justify-between">
+        <div
+          class="pb-8 text h-36 w-screen bg-gradient-to-r from-violet-400 to-purple-400 pl-36 pt-12 text-6xl font-black leading-10 text-white"
+        >
+          TO-DO LIST
+        </div>
+        <div class="absolute flex w-full place-content-end">
+          <img
+            class="h-36 pt-8 pb-8 pr-2"
+            src="https://i.imgur.com/WllBuPB.png"
+            alt=""
+          />
+          <span class="pr-36 pt-14 pb-14 pl-2 text-3xl text-white"
+            >Vishaka</span
+          >
+        </div>
+      </div>
+      <div class="pl-20 pr-48">
+        <div class="relative flex w-full justify-between pt-24 pl-96 pr-72">
+          <input
+            v-model="input"
+            class="w-full rounded-2xl border pt-8 pb-8 pl-9 focus:border-blue-600 focus:outline-none"
+            autocomplete=" on"
+            placeholder=" Add new task"
+            @keypress.enter="addToList"
+          />
+          <div class="pr-16">
+            <button
+              class="absolute bottom-4 w-63 h-18 right-96 flex justify-between rounded-lg bg-gradient-to-r from-violet-400 to-purple-400 pt-4 pb-4 pl-8 pr-8 font-bold text-white"
+            >
+              Create task
+              <img
+                class=" h-6 w-7 pl-2"
+                src="https://i.imgur.com/X5tf72x.png"
+                alt=""
+              />
+            </button>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="pl-16 pr-36">
+        <div class="pt-12 mx-auto w-full px-96 relative">
+          <ul>
+            
+            <li 
+              v-for="(item, index) of list"
+              :key="item"
+              
+              class="border m-5 pt-4 pb-4 pl-2 pr-3 bg-white flex rounded-2xl justify-between text-lg font-semibold"
+            
+            >
+              <span class=" pl-3 pt-2">
+                <input  type="checkbox"   class="cursor-pointer "/>
+                
+
+                <span class="top-4 h-full pl-3">{{ item }}</span>
+              </span>
+              <span class="cursor-pointer p-2   " @click="remove(index)"
+                ><img
+                  class="h-7  pl-96 flex"
+                  src="https://i.imgur.com/EHClZ0K.png"
+                  alt=""
+              /></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+
+
+export default {
+  name: 'IndexPage',
+  data() {
+    return {
+      list: [],
+      input: '',
+    }
+  },
+  methods: {
+    addToList() {
+      this.list.push(this.input)
+      this.input = ''
+    },
+   
+    remove(index) {
+      this.list.splice(index, 1)
+    },
+  },
+}
+</script>
