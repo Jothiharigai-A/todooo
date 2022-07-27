@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <div class="min-h-screen bg-slate-100">
       <div class="relative flex h-full w-full justify-between">
         <div
@@ -34,12 +33,11 @@
             >
               Create task
               <img
-                class=" h-6 w-7 pl-2"
+                class="h-6 w-7 pl-2"
                 src="https://i.imgur.com/X5tf72x.png"
                 alt=""
               />
             </button>
-            
           </div>
         </div>
       </div>
@@ -47,23 +45,33 @@
       <div class="pl-16 pr-36">
         <div class="pt-12 mx-auto w-full px-96 relative">
           <ul>
-            
-            <li 
+            <li
               v-for="(item, index) of list"
               :key="item"
-              
-              class="border m-5 pt-4 pb-4 pl-2 pr-3 bg-white flex rounded-2xl justify-between text-lg font-semibold"
-            
+              class="border m-5 pt-4 top-4 pb-4 pl-2 pr-3 bg-white flex rounded-2xl justify-between  text-lg font-semibold"
             >
-              <span class=" pl-3 pt-2">
-                <input  type="checkbox"   class="cursor-pointer "/>
-                
-
-                <span class="top-4 h-full pl-3">{{ item }}</span>
-              </span>
-              <span class="cursor-pointer p-2   " @click="remove(index)"
+              <span class="flex pt-2 ">
+                <div class="pl-3 pt-2" @click="select(index)">
+                  <input
+                    v-if="item.isChecked == true"
+                    class="  flex cursor-pointer"
+                    type="checkbox"
+                  />
+                  <input
+                    v-if="item.isChecked == false"
+                    class=" flex cursor-pointer"
+                    type="checkbox"
+                  />
+                </div>
+                <span
+                  class="top-4 h-full pl-3 flex flex-wrap font-semibold  "
+                  :class="{ 'line-through bg-border-blue-600': item.isChecked == true }"
+                  >{{ item.text }}</span
+                >
+               </span>
+              <span class="cursor-pointer p-2" @click="remove(index)"
                 ><img
-                  class="h-7  pl-96 flex"
+                  class="h-7 pl-96 flex"
                   src="https://i.imgur.com/EHClZ0K.png"
                   alt=""
               /></span>
@@ -76,8 +84,6 @@
 </template>
 
 <script>
-
-
 export default {
   name: 'IndexPage',
   data() {
@@ -86,12 +92,18 @@ export default {
       input: '',
     }
   },
-  methods: {
+   methods: {
     addToList() {
-      this.list.push(this.input)
+      this.list.push({
+        text: this.input,
+        isChecked: false,
+      })
       this.input = ''
     },
-   
+    select(index) {
+      this.list[index].isChecked = !this.list[index].isChecked
+    },
+
     remove(index) {
       this.list.splice(index, 1)
     },

@@ -1,15 +1,17 @@
 <template>
-<div>
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.15" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" fill="#1363DF"/>
-<path d="M10.5799 15.58C10.3799 15.58 10.1899 15.5 10.0499 15.36L7.21994 12.53C6.92994 12.24 6.92994 11.76 7.21994 11.47C7.50994 11.18 7.98994 11.18 8.27994 11.47L10.5799 13.77L15.7199 8.63001C16.0099 8.34001 16.4899 8.34001 16.7799 8.63001C17.0699 8.92001 17.0699 9.40001 16.7799 9.69001L11.1099 15.36C10.9699 15.5 10.7799 15.58 10.5799 15.58Z" fill="#1363DF"/>
-</svg>
-
-</div>
+  <div class="pl-96 bg-gray-100 pr-96 pt-10 mx-auto">
+    <div class="pt-60 pl-80 pr-80  min-h-screen">
+      <div class="h-56 min-w-max border pt-14 text-center  font-bold  rounded-2xl bg-white"> Do you really want to delete the task?
+        <div class=" pt-8 pr-10 pl-10 flex justify-between ">
+        <button class=" py-4 px-8 pr-4 text-xs bg-gray-200 border rounded-xl "> No don’t delete</button>
+        <button class=" py-4 pl-8 px-12 text-xs bg-red-500 text-white border rounded-xl"> Yes delete</button>
+      </div>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-
-export default{
-    name : 'DemoPage',
+export default {
+  name: 'DemoPage',
 }
 </script>
