@@ -48,33 +48,38 @@
             <li
               v-for="(item, index) of list"
               :key="item"
-              class="border m-5 pt-4 top-4 pb-4 pl-2 pr-3 bg-white flex rounded-2xl justify-between  text-lg font-semibold"
+              class="border m-5 pt-4 top-4 pb-4 pl-2 pr-3 bg-white flex rounded-2xl justify-between text-lg font-semibold"
             >
-              <span class="flex pt-2 ">
+              <span class="flex pt-2">
                 <div class="pl-3 pt-2" @click="select(index)">
                   <input
                     v-if="item.isChecked == true"
-                    class="  flex cursor-pointer"
+                    class="flex cursor-pointer"
                     type="checkbox"
                   />
                   <input
                     v-if="item.isChecked == false"
-                    class=" flex cursor-pointer"
+                    class="flex cursor-pointer"
                     type="checkbox"
                   />
                 </div>
                 <span
-                  class="top-4 h-full pl-3 flex flex-wrap font-semibold  "
-                  :class="{ 'line-through bg-border-blue-600': item.isChecked == true }"
+                  class="top-4 h-full pl-3 flex flex-wrap font-semibold"
+                  :class="{
+                    'line-through bg-border-blue-600': item.isChecked == true,
+                  }"
                   >{{ item.text }}</span
                 >
-               </span>
-              <span class="cursor-pointer p-2" @click="remove(index)"
-                ><img
-                  class="h-7 pl-96 flex"
-                  src="https://i.imgur.com/EHClZ0K.png"
-                  alt=""
-              /></span>
+              </span>
+              <span>
+                <button class="cursor-pointer p-2" @click="remove(index)">
+                  <img
+                    class="h-7 pl-96 flex"
+                    src="https://i.imgur.com/EHClZ0K.png"
+                    alt=""
+                  />
+                </button>
+              </span>
             </li>
           </ul>
         </div>
@@ -88,16 +93,21 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      list: [],
+      list:[],
       input: '',
     }
   },
-   methods: {
+  mounted(){
+    this.list = JSON.parse(localStorage.getItem('list')) || [];
+  },
+  
+  methods: {
     addToList() {
       this.list.push({
         text: this.input,
         isChecked: false,
       })
+      localStorage.setItem('list', JSON.stringify(this.list)) 
       this.input = ''
     },
     select(index) {
