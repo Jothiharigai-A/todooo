@@ -1,17 +1,26 @@
-/** @type {import('tailwindcss').config} */
-
-   module.exports = {
-  content : [],
-    theme: {
-        extend: {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [],
+  theme: {
+    extend: {
       colors: {
-        'th-black' : '#1E1F2C',
-        'light-th' : '#2A2B3A'
+        'black-lite' : '#1E1F2C',
+        'light-th' : '#2A2B3A',
+        'dt-red' : '#EB1D36',
+        'blu-lt': ' #5052C3'
 
       },
-    },
-    },
 
-Plugins: [],
+        screens: {
+          'lg': '992px',
+        },
+fontFamily:{
+  jk: 'Lora',
+  jl: 'Mulish'
+}
 
-   }
+
+    },
+  },
+  plugins: [],
+}

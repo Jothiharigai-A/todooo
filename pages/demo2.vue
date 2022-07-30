@@ -10,7 +10,7 @@
             No don’t delete 
           </button>
           <button
-            class="py-4 pl-8 px-12 pr-10 text-xs text-center bg-red-400 text-white border rounded-xl"
+            class="py-4 pl-8 px-12 pr-10 text-xs text-center bg-red-600 text-white border rounded-xl"
           >
             Yes delete
           </button>
