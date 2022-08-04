@@ -72,7 +72,13 @@
                 >
               </span>
               <span>
-                <button class="cursor-pointer p-2" @click="isOpen = true; currentIndex = index">
+                <button
+                  class="cursor-pointer p-2"
+                  @click="
+                    isOpen = true
+                    currentIndex = index
+                  "
+                >
                   <img
                     class="h-7 pl-96 flex"
                     src="https://i.imgur.com/EHClZ0K.png"
@@ -88,22 +94,22 @@
 
     <div
       v-if="isOpen == true"
-      class="fixed flex items-center justify-center w-full h-screen bg-black bg-opacity-60"
+      class="fixed top-0 left-0  flex items-center justify-center w-full h-screen bg-black bg-opacity-80"
     >
       <div
-        class="relative h-56 min-w-max border pt-14 text-center font-bold rounded-2xl bg-white"
+        class=" h-60 w-96 border pt-16 text-center font-bold text-black rounded-3xl bg-white"
       >
         Do you really want to delete the task?
-        <div class="pt-8 pr-10 pl-10 flex justify-between">
+        <div class="pt-14 pr-10 pl-10 flex justify-between">
           <button
-            class="absolute py-4 px-8 pr-8 text-xs bg-gray-200 border rounded-xl"
+            class=" py-4 px-8 pr-8 text-xs bg-gray-200 border rounded-xl"
             @click="isOpen = false"
           >
             No don’t delete
           </button>
           <button
-            class="py-4 pl-8 px-12 pr-10 text-xs text-center bg-red-400 text-white border rounded-xl"
-            @click="remove(currentIndex); isOpen = false"
+            class="py-4 pl-8 px-12 pr-10 text-xs text-center bg-red-bt text-white border rounded-xl"
+            @click="remove(currentIndex); isOpen = false "
           >
             Yes delete
           </button>
@@ -119,7 +125,7 @@ export default {
   data() {
     return {
       isOpen: false,
-      currentIndex: 0 ,
+      currentIndex: 0,
       list: [],
       input: '',
     }
