@@ -49,7 +49,7 @@
           </div>
 
           <div
-            class="hidden sm:hidden lg:pl-32 lg:pt-10 md:hidden 2xl:pt-20 2xl:block lg:block"
+            class="hidden sm:hidden  lg:pt-10 md:hidden 2xl:pt-20 2xl:block lg:pl-32 lg:block"
           >
             <img
               class="lg:max-w-2xl lg:pr-10 lg:h-64 lg:pl-16 2xl:h-80 2xl:pl-4 2xl:w-full"
