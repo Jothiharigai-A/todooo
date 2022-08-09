@@ -25,7 +25,7 @@
             class="w-full rounded-2xl border pt-8 pb-8 pl-9 focus:border-blue-600 focus:outline-none"
             autocomplete=" on"
             placeholder=" Add new task"
-            @keypress.enter="addToList"
+            @keypress.enter="addToList()"
           />
           <div class="pr-16">
             <button
@@ -68,7 +68,7 @@
                   :class="{
                     'line-through bg-border-blue-600': item.isChecked == true,
                   }"
-                  >{{ item.text }}</span
+                  >{{ item.taskName}}</span
                 >
               </span>
               <span>
@@ -134,18 +134,35 @@ export default {
     }
   },
   mounted() {
-    this.list = JSON.parse(localStorage.getItem('list')) || []
+   fetch('http://localhost:3000/api/todos').then(async (respose) => {
+      this.list = await respose.json()
+    })
   },
 
   methods: {
     addToList() {
-      this.list.push({
-        text: this.input,
+      this.list.unshift({
+        taskName: this.input,
         isChecked: false,
+      
+
       })
-      localStorage.setItem('list', JSON.stringify(this.list))
-      this.input = ''
+       
+     const todo ={
+      taskName: this.input,
+     }
+     fetch('http://localhost:3000/api/todos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(todo),
+      }).then((res) => console.log)
     },
+  },
+
+     
+    
     select(index) {
       this.list[index].isChecked = !this.list[index].isChecked
     },
@@ -153,6 +170,6 @@ export default {
     remove(index) {
       this.list.splice(index, 1)
     },
-  },
-}
+  }
+
 </script>

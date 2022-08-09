@@ -9,6 +9,8 @@ module.exports = {
         'dt-red': '#EB1D36',
         'blu-lt': ' #5052C3',
         'red-bt': '#FB5858',
+        'bx-violet' : '#EEEEF9',
+        'txt-blue':'#1E1F58',
       },
 
       screens: {
