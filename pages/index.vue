@@ -68,7 +68,7 @@
                   :class="{
                     'line-through bg-border-blue-600': item.isChecked == true,
                   }"
-                  >{{ item.taskName}}</span
+                  >{{ item.taskName }}</span
                 >
               </span>
               <span>
@@ -134,42 +134,43 @@ export default {
     }
   },
   mounted() {
-   fetch('http://localhost:3000/api/todos').then(async (respose) => {
+    fetch('http://localhost:3000/api/todos').then(async (respose) => {
       this.list = await respose.json()
     })
   },
+   
 
   methods: {
     addToList() {
       this.list.unshift({
         taskName: this.input,
         isChecked: false,
+        
+      })
       
 
-      })
-       
-     const todo ={
-      taskName: this.input,
-     }
-     fetch('http://localhost:3000/api/todos', {
+      const todo = {
+        taskName: this.input,
+      }
+      fetch('http://localhost:3000/api/todos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          
         },
         body: JSON.stringify(todo),
       }).then((res) => console.log)
     },
+    
   },
 
-     
-    
-    select(index) {
-      this.list[index].isChecked = !this.list[index].isChecked
-    },
+  select(index) {
+    this.list[index].isChecked = !this.list[index].isChecked
+  },
 
-    remove(index) {
-      this.list.splice(index, 1)
-    },
-  }
-
+  remove(index) {
+    this.list.splice(index, 1)
+    this.input = ''
+  },
+}
 </script>
