@@ -11,7 +11,8 @@
       <div class="relative w-64 h-32 bg-white shadow-2xl">
         I am a popup
         <button class="absolute w-6 h-6 bg-white border rounded-full shadow-2xl -top-2 -right-2" @click="isOpen = false">X</button>
-      </div>
+     
+     </div>
     </div>
   </div>
 </template>

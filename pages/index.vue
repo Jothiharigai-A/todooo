@@ -138,16 +138,16 @@ export default {
       this.list = await respose.json()
     })
   },
-   
+
 
   methods: {
     addToList() {
       this.list.unshift({
         taskName: this.input,
         isChecked: false,
-        
+
       })
-      
+
 
       const todo = {
         taskName: this.input,
@@ -156,12 +156,12 @@ export default {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          
+
         },
         body: JSON.stringify(todo),
       }).then((res) => console.log)
     },
-    
+
   },
 
   select(index) {

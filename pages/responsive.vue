@@ -171,7 +171,7 @@
         </div>
       </div>
 
-      <div class="pt-24 md:pt-[180px] md:px-[120px] lg:px-[80px]">
+      <div class="pt-24 md:pt-[180px] md:px-[120p x] lg:px-[80px]">
         <p
           class="font-bold text-2xl text-center font-jk md:text-4xl md:text-start lg:w-[492px] lg:text-4xl"
         >
@@ -651,45 +651,67 @@
             >
               What parents are saying about us
             </p>
-            <video class="pt-8" autoplay playsinline muted>
-              <source src="https://i.imgur.com/KONxtBz.mp4" />
-            </video>
-            <p class="pt-[48px] font-jl text-sm leading-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt
-              elementum lobortis etiam risus sit mattis sit. Interdum et at
-              massa consectetur rhoncusLorem ipsum dolor
-            </p>
-            <div class="pt-[24px] flex">
-              <img
-                class="w-[48px] h-[48px]"
-                src="https://i.imgur.com/p8egXs2.png"
-                alt=""
-              />
-              <div class="flex flex-col">
-                <span class="font-jl font-bold text-sm pl-3 pt-1"
-                  >Sheik Aadhil</span
-                >
+            <div class="md:pt-[76px]">
+              <video
+                class="pt-8 md:h-[400px] md:w-[301px]"
+                autoplay
+                playsinline
+                muted
+              >
+                <source src="https://i.imgur.com/KONxtBz.mp4" />
+              </video>
+            </div>
+            <div class=" md:pt-10">
+              <div
+                class="md:border md:pt-8 md:pl-4 md:pb-8 md:pr-4 md:w-[301px] md:h-[272px]"
+              >
+                <p class="pt-[48px] font-jl text-sm leading-6 md:pt-0">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Tincidunt elementum lobortis etiam risus sit mattis sit.
+                  Interdum et at massa consectetur rhoncusLorem ipsum dolor
+                </p>
+                <div class="pt-[24px] flex">
+                  <img
+                    class="w-[48px] h-[48px]"
+                    src="https://i.imgur.com/p8egXs2.png"
+                    alt=""
+                  />
+                  <div class="flex flex-col">
+                    <span class="font-jl font-bold text-sm pl-3 pt-1"
+                      >Sheik Aadhil</span
+                    >
 
-                <span class="font-jl text-xs pl-3 pt-1">Designer</span>
+                    <span class="font-jl text-xs pl-3 pt-1">Designer</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="pt-[100px]">
-        <div class="bg-txt-blue w-[400px] h-[1512px]">
-          <div class="font-jk font-bold text-3xl pt-16 text-center text-white">
-            Benefits to the school
-          </div>
-          <div class="pt-8 px-[44px]">
+        <div class="bg-txt-blue w-[400px] h-[1512px] md:h-[1550px] md:w-[820px] ">
+          <div class=" md:pl-36">
+          <div class="font-jk font-bold text-3xl pt-16 text-center text-white   md:w-[519px] md:h-[112px] md:text-5xl  ">
+           How we helped schools to transform
+          </div></div>
+          <div class="pt-8 px-[44px] md:px-[120px] md:pt-[70px]">
             <div
-              class="border bg-white rounded-2xl w-[300px] h-[308px] relative"
-            >
+              class="border bg-white rounded-2xl w-[300px] h-[308px] relative md:w-[580px] md:h-[308px]"
+            ><div class="snap-x ">
+              <div class=" snap-center ">
               <img
                 class="pl-5 pt-12 absolute"
                 src="https://i.imgur.com/WBBeR7O.png"
                 alt=""
-              />
+              /></div>
+               <div class=" snap-center ">
+              <img
+                class="pl-5 pt-12 absolute"
+                src="https://i.imgur.com/WBBeR7O.png"
+                alt=""
+              /></div>
+              </div>
               <div class="pt-32 pl-5 font-black font-jl">Massive Admission</div>
               <p class="font-jl font-normal text-xs leading-6 pl-5 pt-3">
                 Parents need their kids to learn skills beyond their school
@@ -698,9 +720,9 @@
               </p>
             </div>
           </div>
-          <div class="pt-8 px-[44px]">
+          <div class="pt-8 px-[44px] md:px-[120px]">
             <div
-              class="border bg-white rounded-2xl w-[300px] h-[308px] relative"
+              class="border bg-white rounded-2xl w-[300px] h-[308px] relative md:w-[580px] md:h-[308px]"
             >
               <img
                 class="pl-5 pt-12 absolute"
@@ -715,9 +737,9 @@
               </p>
             </div>
           </div>
-          <div class="pt-8 px-[44px]">
+          <div class="pt-8 px-[44px] md:px-[120px]">
             <div
-              class="border bg-white rounded-2xl w-[300px] h-[308px] relative"
+              class="border bg-white rounded-2xl w-[300px] h-[308px] relative md:w-[580px] md:h-[308px]"
             >
               <img
                 class="pl-5 pt-12 absolute"
@@ -733,9 +755,10 @@
               </p>
             </div>
           </div>
-          <div class="pt-8 px-[44px]">
+          <div class="pt-8 px-[44px] md:px-[120px]">
             <div
-              class="border bg-white rounded-2xl w-[300px] h-[308px] relative"
+              class="border bg-white rounded-2xl w-[300px] h-[308px] relative md:w-[580px] md:h-[308px]
+              "
             >
               <img
                 class="pl-5 pt-12 absolute"
@@ -752,17 +775,17 @@
               </p>
             </div>
           </div>
-          <div class="pt-[100px] text-center font-jk font-bold text-2xl">
+          <div class="pt-[100px] text-center font-jk font-bold text-2xl md:pt-[120px] md:text-4xl">
             Our Achievements
           </div>
           <div class="pt-9 px-[85px] flex">
             <img
-              class="w-[79px] h-[101px]"
+              class="w-[79px] h-[101px] md:w-[136px] md:h-[160px]"
               src="https://i.imgur.com/SZMfUXf.png"
               alt=""
             />
             <img
-              class="h-[101px] pl-[60px]"
+              class="h-[101px] pl-[60px] md:w-[136px] md:h-[160px]"
               src="https://i.imgur.com/o71QwDx.png"
               alt=""
             />
@@ -777,12 +800,12 @@
           </div>
           <div class="pt-9 pl-28 flex">
             <img
-              class="w-[50px] h-[128px]"
+              class="w-[50px] h-[128px] md:w-[136px] md:h-[160px]"
               src="https://i.imgur.com/vJhuBdm.png"
               alt=""
             />
             <img
-              class="h-[128px] pl-[65px]"
+              class="h-[128px] pl-[65px] md:w-[136px] md:h-[160px]"
               src="https://i.imgur.com/Gxwo0LT.png"
               alt=""
             />
@@ -813,11 +836,12 @@
             <div class="font-jl font-bold pt-8 flex pl-7 w-full">
               <p class="w-[260px]">What the demo session would look like?</p>
               <div class="pt-4 pl-12">
+                <button>
                 <img
                   class="w-[20px] h-[20px]"
                   src="https://i.imgur.com/MMTgNYv.png"
                   alt=""
-                />
+                /></button>
               </div>
             </div>
             <img
@@ -827,27 +851,27 @@
             />
             <div class="font-jl font-bold pt-8 flex pl-7 w-full">
               <p class="w-[260px]">When will your support team be available?</p>
-             
+
               <div class="pt-4 pl-12">
+                <button>
                 <img
                   class="w-[20px] h-[20px]"
                   src="https://i.imgur.com/Y2HdcAh.png"
                   alt=""
-                />
-                
+                /></button>
               </div>
             </div>
-             <p class="font-jl text-xs leading-6 pt-2 pl-7 w-[320px]">
-                You can contact our Support team between 9AM to 6PM via call
-                (9977885511) or raise your query through WhatsApp and our
-                support team will reach you within 12 hours.
-              </p>
+            <p class="font-jl text-xs leading-6 pt-2 pl-7 w-[320px]">
+              You can contact our Support team between 9AM to 6PM via call
+              (9977885511) or raise your query through WhatsApp and our support
+              team will reach you within 12 hours.
+            </p>
             <img
               class="pl-7 pt-8 w-[360px]"
               src="https://i.imgur.com/frEYoR7.png"
               alt=""
             />
-             <div class="font-jl font-bold pt-8 flex pl-7 w-full">
+            <div class="font-jl font-bold pt-8 flex pl-7 w-full">
               <p class="w-[260px]">When will your support team be available?</p>
               <div class="pt-4 pl-12">
                 <img

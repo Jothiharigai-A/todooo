@@ -1,0 +1,150 @@
+<ul>
+        <li  v-for="(item, index) of list" :key="item">
+        <span>{{ item.index}}</span>
+
+        </li>
+      </ul>
+
+
+
+ @click="changeImg = true"
+
+
+ <div
+        v-if="changeImg == true"
+        class="fixed top-[455px] left-[154px] flex items-center justify-center"
+      >
+        <img
+
+          class="h-5 w-5"
+          src="https://i.imgur.com/HbeoSei.png"
+          alt=""
+        />
+      </div>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 12 14"><path d="M8.9 8.4q-0.3 0.9-1.1 1.5t-1.8 0.6-1.8-0.6-1.1-1.5q-0.1-0.2 0-0.4t0.3-0.2q0.2-0.1 0.4 0t0.2 0.3q0.2 0.6 0.7 1t1.2 0.4 1.2-0.4 0.7-1q0.1-0.2 0.3-0.3t0.4 0 0.3 0.2 0 0.4zM5 5q0 0.4-0.3 0.7t-0.7 0.3-0.7-0.3-0.3-0.7 0.3-0.7 0.7-0.3 0.7 0.3 0.3 0.7zM9 5q0 0.4-0.3 0.7t-0.7 0.3-0.7-0.3-0.3-0.7 0.3-0.7 0.7-0.3 0.7 0.3 0.3 0.7zM11 7q0-1-0.4-1.9t-1.1-1.6-1.6-1.1-1.9-0.4-1.9 0.4-1.6 1.1-1.1 1.6-0.4 1.9 0.4 1.9 1.1 1.6 1.6 1.1 1.9 0.4 1.9-0.4 1.6-1.1 1.1-1.6 0.4-1.9zM12 7q0 1.6-0.8 3t-2.2 2.2-3 0.8-3-0.8-2.2-2.2-0.8-3 0.8-3 2.2-2.2 3-0.8 3 0.8 2.2 2.2 0.8 3z"></path></svg>
+<path d="M8.9 8.4q-0.3 0.9-1.1 1.5t-1.8 0.6-1.8-0.6-1.1-1.5q-0.1-0.2 0-0.4t0.3-0.2q0.2-0.1 0.4 0t0.2 0.3q0.2 0.6 0.7 1t1.2 0.4 1.2-0.4 0.7-1q0.1-0.2 0.3-0.3t0.4 0 0.3 0.2 0 0.4zM5 5q0 0.4-0.3 0.7t-0.7 0.3-0.7-0.3-0.3-0.7 0.3-0.7 0.7-0.3 0.7 0.3 0.3 0.7zM9 5q0 0.4-0.3 0.7t-0.7 0.3-0.7-0.3-0.3-0.7 0.3-0.7 0.7-0.3 0.7 0.3 0.3 0.7zM11 7q0-1-0.4-1.9t-1.1-1.6-1.6-1.1-1.9-0.4-1.9 0.4-1.6 1.1-1.1 1.6-0.4 1.9 0.4 1.9 1.1 1.6 1.6 1.1 1.9 0.4 1.9-0.4 1.6-1.1 1.1-1.6 0.4-1.9zM12 7q0 1.6-0.8 3t-2.2 2.2-3 0.8-3-0.8-2.2-2.2-0.8-3 0.8-3 2.2-2.2 3-0.8 3 0.8 2.2 2.2 0.8 3z"></path>
+
+
+methods: {
+    addToLst() {
+      this.list.unshift({
+        comMents: this.input,
+
+      })
+
+
+      const Instagramapp = {
+        comMents: this.input,
+      }
+      fetch('http://localhost:3000/api/instas', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Instagramapp),
+      }).then((res) => console.log)
+    },
+  },
+   select(index) {
+    this.list[index].isChecked = !this.list[index].isChecked
+  },
+
+
+
+
+  @click="instagramapp.liked = !instagramapp.liked sendLike(instagramapp.id,index)"
+
+
+
+
+
+
+
+  async asyncData({ $axios }) {
+    const response = await $axios.get('/api/admin/instas')
+
+    return {
+      instas: response.data.instas,
+      showModal: false,
+      currentInstagramapp: {},
+    }
+  },
+  methods: {
+    editPost(post) {
+      this.currentPost = post
+      this.showModal = true
+    },
+    updatePost() {
+      console.log(this.currentPost)
+
+      this.$axios
+        .put('/api/admin/instas', this.currentPost)
+        .then((result) => {
+          console.log(result)
+        })
+    },
+  },
+}
+
+
+
+
+
+
+// Create Post
+app.post('/admin/instas', (req, res) => {
+  const body = req.body
+
+  connection.query('INSERT INTO Instagramapp SET ?', [body], (err, result) => {
+    console.log(err, result)
+    return res.json({})
+  })
+})
+
+// Read Post
+app.get('/admin/instas', (req, res) => {
+  connection.query('SELECT * FROM Instagramapp', (err, result) => {
+    console.log(err, result)
+
+
+    res.json({
+      success: true,
+      instas: result,
+    })
+  })
+})
+
+// Update Post
+app.put('/admin/instas', (req, res) => {
+  const body = req.body
+
+  connection.query(
+    'UPDATE Instagramapp SET ? WHERE id = ?',
+    [body, body.id],
+    (err, result) => {
+      console.log(err, result)
+
+      res.json({
+        success: true,
+      })
+    }
+  )
+})
+
+// Delete Post
+app.delete('/admin/instas/:postId', (req, res) => {
+  const postId = req.params.postId
+
+  connection.query(
+    'DELETE FROM Instagramapp WHERE id = ?',
+    [postId],
+    (err, result) => {
+      console.log(err, result)
+
+      res.json({
+        success: true,
+      })
+    }
+  )
+})
