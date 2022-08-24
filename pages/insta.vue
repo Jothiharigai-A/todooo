@@ -3,10 +3,10 @@
     <div
       v-for="(instagramapp, index) of instas"
       :key="index"
-      class="w-[260px] h-[590px] bg-slate-50 pt-3 pl-3 sm:w-[480px]"
+      class="w-[360px] h-[590px] bg-slate-50 pt-3 pl-3 sm:w-[480px]"
     >
       <div class="border pl-2 pt-3 pr-1 shadow-xl rounded-xl bg-white">
-        <div class="flex w-[310px] justify-between px-3 py-3 sm:w-[470px]">
+        <div class="flex w-[340px] justify-between px-3 py-3 sm:w-[470px]">
           <div class="flex">
             <img
               class="h-7 w-7"
@@ -23,11 +23,11 @@
           <button @click="isOpen = true">
             <img
               :src="instagramapp.photo"
-              class="h-80 w-[250px] sm:h-80 sm:w-[580px]"
+              class="h-80 w-[320px] sm:h-80 sm:w-[580px]"
               alt=""
             />
           </button>
-          <div class="flex w-[280px] justify-between pt-5 pb-3 sm:w-[430px]">
+          <div class="flex w-[310px] justify-between pt-5 pb-3 sm:w-[430px]">
             <div class="flex w-[90px] justify-between">
               <button
                 @click="
@@ -98,11 +98,13 @@
       </div>
       <div
         v-if="isOpen == true"
-        class="fixed top-24 left-28 flex items-center justify-center"
+        class="fixed top-24 left-28
+
+         flex items-center justify-center"
       >
         <img
-          class="h-92 w-[620px]"
-          src="https://i.imgur.com/TWQ0ZAB.png"
+          class="h-92 w-[620px] "
+          :src="instagramapp.photo"
           alt=""
         />
         <button
@@ -111,7 +113,7 @@
         >
           <img
             class="h-92 w-[620px]"
-            src="https://i.imgur.com/TWQ0ZAB.png"
+            :src="instagramapp.photo"
             alt=""
           />
         </button>

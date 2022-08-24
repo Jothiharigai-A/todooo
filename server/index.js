@@ -64,5 +64,65 @@ app.post('/like/:postId', (req, res) => {
     success: true,
   })
 })
+// Create Post
+app.post('/admin/instas', (req, res) => {
+  const body = req.body
+
+  connection.query('INSERT INTO Instagramapp SET ?', [body], (err, result) => {
+    console.log(err, result)
+    return res.json({})
+  })
+})
+
+
+
+// Read Post
+app.get('/admin/instas',(req,res) => {
+  connection.query('SELECT * FROM Instagramapp', (err, result) => {
+    console.log(err, result)
+
+
+    res.json({
+      success: true,
+      instas: result,
+    })
+  })
+})
+
+// Update Post
+app.put('/admin/instas', (req, res) => {
+  const body = req.body
+
+  connection.query(
+    'UPDATE Instagramapp SET ? WHERE id = ?',
+    [body, body.id],
+    (err, result) => {
+      console.log(err, result)
+
+      res.json({
+        success: true,
+      })
+    }
+  )
+})
+
+
+// Delete Post
+app.delete('/admin/instas/:postId', (req, res) => {
+  const postId = req.params.postId
+
+  connection.query(
+    'DELETE FROM Instagramapp WHERE id = ?',
+    [postId],
+    (err, result) => {
+      console.log(err, result)
+
+      res.json({
+        success: true,
+      })
+    }
+  )
+})
+
 
 module.exports = app

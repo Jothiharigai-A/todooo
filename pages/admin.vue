@@ -77,7 +77,7 @@
           <td
             class="border-b border-slate-100 dark:border-slate-700 p-4 pr-8 text-slate-500 dark:text-slate-400"
           >
-            <button @click="editPost(post)">Edit</button>
+            <button @click="editPost(instagramapp)">Edit</button>
             <button>Delete</button>
           </td>
         </tr>
@@ -93,11 +93,31 @@
 <script>
 export default {
   name: 'AdminPage',
-   async asyncData({ $axios }) {
+  async asyncData({ $axios }) {
     const response = await $axios.get('/api/admin/instas')
 
+    return {
+      instas: response.data.instas,
+      showModal: false,
+      currentPost: {},
+    }
+  },
+  methods: {
+    editPost(instagramapp) {
+      this.currentInstagramapp = instagramapp
+      this.showModal = true
+    },
+    updatePost() {
+      console.log(this.Instagramapp)
 
-
+      this.$axios
+        .put('/api/admin/instas', this.Instagramapp)
+        .then((result) => {
+          console.log(result)
+        })
+    },
   },
 }
+
+
 </script>
