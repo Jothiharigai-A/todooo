@@ -64,10 +64,22 @@
               </button>
             </div>
             <div class="pl-5">
-              <button @click="saveImage = true">
+              <button
+                @click="
+                  instagramapp.saved = !instagramapp.saved
+                  sendSave(instagramapp.id, index)
+                "
+              >
                 <img
-                  class="h-5 w-5"
+                  v-if="!instagramapp.saved"
                   src="https://i.imgur.com/ElPEQaU.png"
+                  class="h-5 w-5"
+                  alt=""
+                />
+                <img
+                  v-if="instagramapp.saved"
+                  src="https://i.imgur.com/bDr9Fkx.png"
+                  class="h-5 w-5"
                   alt=""
                 />
               </button>
@@ -98,24 +110,14 @@
       </div>
       <div
         v-if="isOpen == true"
-        class="fixed top-24 left-28
-
-         flex items-center justify-center"
+        class="fixed top-24 left-28 flex items-center justify-center"
       >
-        <img
-          class="h-92 w-[620px] "
-          :src="instagramapp.photo"
-          alt=""
-        />
+        <img class="h-92 w-[620px]" :src="instagramapp.photo" alt="" />
         <button
           class="fixed top-24 left-28 flex items-center justify-center"
           @click="isOpen = false"
         >
-          <img
-            class="h-92 w-[620px]"
-            :src="instagramapp.photo"
-            alt=""
-          />
+          <img class="h-92 w-[620px]" :src="instagramapp.photo" alt="" />
         </button>
       </div>
       <!--
@@ -131,7 +133,7 @@
             <img class="h-5 w-5 relative" src="https://i.imgur.com/HBalfFn.png" alt="" />
         </button>
       </div>
-      -->
+
       <div
         v-if="saveImage == true"
         class="fixed top-[455px] left-[154px] flex items-center justify-center"
@@ -152,7 +154,7 @@
           />
         </button>
       </div>
-      <!--
+
       <div>
         <ul>
           <li v-for="(item, index) of list" :key="index">
@@ -190,6 +192,14 @@ export default {
       }).then((response) => {
         console.log(response)
         this.instas[index].likes += 1
+      })
+    },
+    sendSave(postId, index) {
+      fetch('/api/save/' + postId, {
+        method: 'POST',
+      }).then((response) => {
+        console.log(response)
+        this.instas[index].save += 1
       })
     },
   },

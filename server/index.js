@@ -64,6 +64,37 @@ app.post('/like/:postId', (req, res) => {
     success: true,
   })
 })
+
+app.post('/save/:postId', (req, res) => {
+  const postId = req.params.postId
+  connection.query(
+    'UPDATE Instagramapp SET save = save + 1 WHERE id = ?',
+    [postId],
+    (err, result) => {
+      console.log(err, result)
+    }
+  )
+
+  res.json({
+    success: true,
+  })
+})
+
+app.delete('/admin/instas', (req, res) => {
+  connection.query(
+    'DELETE FROM Instagramapp WHERE id = ?',
+
+    (err, result) => {
+      console.log(err, result)
+
+      res.json({
+        success: true,
+      })
+    }
+  )
+})
+
+
 // Create Post
 app.post('/admin/instas', (req, res) => {
   const body = req.body
@@ -74,13 +105,10 @@ app.post('/admin/instas', (req, res) => {
   })
 })
 
-
-
 // Read Post
-app.get('/admin/instas',(req,res) => {
+app.get('/admin/instas', (req, res) => {
   connection.query('SELECT * FROM Instagramapp', (err, result) => {
     console.log(err, result)
-
 
     res.json({
       success: true,
@@ -106,7 +134,6 @@ app.put('/admin/instas', (req, res) => {
   )
 })
 
-
 // Delete Post
 app.delete('/admin/instas/:postId', (req, res) => {
   const postId = req.params.postId
@@ -123,6 +150,5 @@ app.delete('/admin/instas/:postId', (req, res) => {
     }
   )
 })
-
 
 module.exports = app

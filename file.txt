@@ -89,6 +89,12 @@ methods: {
 
 
 
+ msgBox(){
+      this.alert("Hello Vue Simple Alert.");
+    },
+
+
+
 
 
 
@@ -148,3 +154,21 @@ app.delete('/admin/instas/:postId', (req, res) => {
     }
   )
 })
+
+ class="fixed flex bg-black bg-opacity-80 top-0 left-0 items-center justify-center w-full h-screen"
+
+
+
+  class="h-72 w-[400px] space-y-3 bg-slate-100 top-44 left-[730px] border border-double rounded-2xl shadow-2xl text-xs"
+
+
+   <div
+          class="fixed flex -top-40 left-48 items-center justify-center w-full h-screen"
+        >
+          <button
+            class="absolute w-6 h-6 bg-red-400 text-white border rounded-full shadow-2xl"
+            @click="showModal = false"
+          >
+            X
+          </button>
+        </div>
