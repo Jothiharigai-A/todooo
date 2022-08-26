@@ -172,3 +172,95 @@ app.delete('/admin/instas/:postId', (req, res) => {
             X
           </button>
         </div>
+
+
+
+ <button
+              class="text-white font-bold flex flex-col px-4 py-1 rounded-2xl bg-blue-600"
+            >CREATE
+              <img
+                class="h-5 w-5"
+                src="https://i.imgur.com/gOQdlVR.png"
+                alt=""
+              />
+            </button>
+             addData(instagramapp) {
+      this.currentInstagramapp = instagramapp
+      this.showData = true
+    },
+
+
+     href : 'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Mulish&family=Playfair+Display+SC:ital&display=swap',
+
+
+
+
+
+
+
+
+
+
+updateId() {
+      console.log(this.crntInstagramapp)
+
+      this.$axios
+        .post('/api/admin/instas', this.crntInstagramapp)
+        .then((result) => {
+          console.log(result)
+        })
+    },
+
+
+    app.post('/admin/instas', (req, res) => {
+  const body = req.body
+
+  connection.query('INSERT INTO Instagramapp SET ?', [body], (err, result) => {
+    console.log(err, result)
+    return res.json({})
+  })
+})
+
+<div class="flex w-[450px] px-3 justify-between">
+        <span class="font-semibold pt-3 pl-3"> PHOTO:</span>
+        <input
+          v-model="crntInstagramapp.photo"
+          class="pt-0 font-medium h-10 w-64 bg-slate-100 border rounded-xl focus:border-blue-600 focus:outline"
+        />
+      </div>
+      <div class="flex w-[450px] px-3 justify-between">
+        <span class="font-semibold pt-3 pl-3"> SHARE:</span>
+        <input
+          v-model="crntInstagramapp.shares"
+          class="pt-0 font-medium h-10 w-64 bg-slate-100 border rounded-xl focus:border-blue-600 focus:outline"
+        />
+      </div>
+      <div class="flex w-[450px] px-3 justify-between">
+        <span class="font-semibold pt-3 pl-3"> SAVE:</span>
+        <input
+          v-model="crntInstagramapp.save"
+          class="pt-0 font-medium h-10 w-64 bg-slate-100 border rounded-xl focus:border-blue-600 focus:outline"
+        />
+      </div>
+      <div class="flex w-[450px] px-3 justify-between">
+        <span class="font-semibold pt-3 pl-3"> UPDATE:</span>
+        <input
+          v-model="crntInstagramapp.updatedAt"
+          class="pt-0 font-medium h-10 w-64 bg-slate-100 border rounded-xl focus:border-blue-600 focus:outline"
+        />
+      </div>
+
+      <div class="pl-44 pt-5">
+        <button
+          class="bg-blue-600 px-4 py-2 text-white border w-20 rounded"
+          @click="updateId()"
+        >
+          Save
+        </button>
+      </div>
+      <button
+        class="absolute w-6 h-6 bg-red-400 text-white border rounded-full shadow-2xl -top-5 -right-2"
+        @click="showaddId = false"
+      >
+        X
+      </button>

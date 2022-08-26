@@ -14,11 +14,12 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },{
-      href : 'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Mulish&family=Playfair+Display+SC:ital&display=swap',
-      rel: 'stylesheet'
-  }],
-
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -39,15 +40,15 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules:  ['@nuxtjs/axios'],
-
+  modules: ['@nuxtjs/axios'],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  serverMiddleware:[
+  serverMiddleware: [
     {
-      path: '/api', handler:'~server/index.js'
-    }
+      path: '/api',
+      handler: '~server/index.js',
+    },
   ],
   devServerHandlers: [],
 }

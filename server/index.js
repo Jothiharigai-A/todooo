@@ -81,8 +81,9 @@ app.post('/save/:postId', (req, res) => {
 })
 
 app.delete('/admin/instas', (req, res) => {
+  const postId = req.params.postId
   connection.query(
-    'DELETE FROM Instagramapp WHERE id = ?',
+    'DELETE FROM Instagramapp WHERE id = ?',[postId],
 
     (err, result) => {
       console.log(err, result)
@@ -93,7 +94,6 @@ app.delete('/admin/instas', (req, res) => {
     }
   )
 })
-
 
 // Create Post
 app.post('/admin/instas', (req, res) => {
@@ -150,5 +150,7 @@ app.delete('/admin/instas/:postId', (req, res) => {
     }
   )
 })
+
+
 
 module.exports = app
